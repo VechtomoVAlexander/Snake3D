@@ -46,16 +46,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (isMovementStopped)
+        {
+
+            return;
+        }
+
         if (!this) return;
 
         
         PositionsHistory.Insert(0, transform.position);
 
-        if (isMovementStopped)
-        {
-           
-            return;
-        }
+       
 
         
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
